@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { GlobalService, ApiService } from 'service';
-import { Observable } from 'rxjs';
-import { host } from 'lib/config';
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { ApiService } from 'service';
+import { Observable, Subscription } from 'rxjs';
 @Component({
     selector: 'header-toolbar',
     templateUrl: 'header.component.html'
@@ -9,55 +8,83 @@ import { host } from 'lib/config';
 /**
  * 主頁面上的 header
  */
-export class HeaderComponent implements OnInit {
-    private nowTime:string = "";
-    private marqueeData: String = "";
-    constructor(private globals: GlobalService, private api: ApiService) { }
+export class HeaderComponent implements OnInit, OnDestroy {
+    /**
+     * 現在時間
+     */
+    public nowTime : string = "";
+    /**
+     * 當前語言 顯示的名稱
+     */
+    public selectLang : string = "";
+    /**
+     * 當前語言 顯示的 css 國旗
+     */
+    public selectLangClass = {};
+    constructor(public api: ApiService) { }
 
     ngOnInit() {
         this.doReload();
-        this.nowTime = new Date().toString();
-        Observable.create(function(observer) {
-            setInterval(() => {
-                observer.next(new Date());
-            }, 1000)
-        })
-        .subscribe((value) =>{
-         this.nowTime=value;
-        //  console.log(this.nowTime);
-        });
-    //      new Observable(observer => {
-    //       setInterval(() => {
-    //             observer.next(new Date());
-    //         }, 1000)
-    //   }).subscribe((value) =>{
-    //     //  this.nowTime=value;
-    //      console.log(value);
-    //     });
+        this.NowLang();
+        this.nowTime = new Date().toString().slice(0,new Date().toString().indexOf("("));
+        Observable.interval(1000).subscribe( () => this.nowTime = new Date().toString().slice(0,new Date().toString().indexOf("(")));
+        // switch (this.selectLang) {
+        //     case "English":
+        //         this.nowTime = new Date().toString().replace("台北標準時間", "Beijing");
+        //         Observable.interval(1000).subscribe( () => this.nowTime = new Date().toString().replace("台北標準時間", "Beijing") );
+        //         break;
+        //     case "简体中文":
+        //         this.nowTime = new Date().toString().replace("台北標準時間", "北京标准时间");
+        //         Observable.interval(1000).subscribe( () => this.nowTime = new Date().toString().replace("台北標準時間", "北京标准时间") );
+        //         break;
+        //     case "繁體中文":
+        //         this.nowTime = new Date().toString().replace("台北標準時間", "北京標準時間");
+        //         Observable.interval(1000).subscribe( () => this.nowTime = new Date().toString().replace("台北標準時間", "北京標準時間") );
+        //         break;
+
+        //     default:
+        //         break;
+        // }
 
 
     }
+    /**
+     * 判斷是否重新整理
+     */
      doReload(){
-        if(!sessionStorage.getItem('uid')) {
+        if(!sessionStorage.getItem('uid'))  return;
+     }
+    /**
+     * 改變當前語言的值 存在 sessionStorage 內
+     * @param _setlang
+     */
+    changeLanguage(_setlang : string){
+        if(sessionStorage.getItem("lang")==_setlang){
             return;
         }
-        this.globals.setShowLogin(false);
-        this.getMarquee();
-     }
-     /**
-      * 取得跑馬燈顯示的資料
-      */
-     getMarquee():void{
-        this.api.getFakeData(810, { uid:sessionStorage.getItem('uid') ,lang: host.lan }).subscribe(res => {
-            this.globals.status(res.status, res.msg);
-            let data = res.data;
-            res.data.map((item) => {
-                this.marqueeData += item.content+"\t";
-            });
+        sessionStorage.setItem("lang",_setlang);
+        location.reload();
+    }
+    /**
+     * 取得當前語言的 物件
+     */
+    NowLang(){
+        switch(sessionStorage.getItem("lang")){
+            case 'zh-tw' :
+                this.selectLang = "繁體中文";
+                this.selectLangClass = { lg_tw : true };
+                break;
+            case 'zh-cn' :
+                this.selectLang = "简体中文";
+                this.selectLangClass = { lg_cn : true };
+                break;
+            case 'en-us' :
+                this.selectLang = "English";
+                this.selectLangClass = { lg_en : true };
+                break;
+        }
+    }
 
-        });
-     }
-    changePage(name: string) {
-	    this.globals.goPage([name]);
-	}
+    ngOnDestroy(){
+    }
 }

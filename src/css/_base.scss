@@ -1,125 +1,262 @@
 @charset "utf-8";
-* {
-	font-family: $font;
+
+//參數
+/*單一顏色*/
+$color-white: #fff;
+$color-black: #000;
+$color-red: #ff0000;
+$color-gray1: #eeeeee;
+$color-gray2: #efefef;
+$color-gray3: #666666;
+$color-gray4: #444444;
+$color-gray5: #f7f7f7;
+$color-gray6: #ececec;
+$color-gray7: #383838;
+$color-gray8: #505050;
+$color-gray9: #272727;
+$color-gray10: #e1e1e1;
+$color-gray11: #777777;
+$color-blue1: #0186fa;
+$color-blue2: #e5eff9;
+$color-blue3: #0489fb;
+$color-blue4: #0b8bf7;
+$color-blue5: #0089fd;
+$color-blue6: #8ecbff;
+$color-blue7: #004279;
+$color-blue8: #0157fa;
+$color-blue9: #bbdefd;
+$color-orange1: #ff6116;
+$color-orange2: #ec4c00;
+$color-orange3: #ff5200;
+$color-orange4: #d44e0d;
+$color-orange5: #fe996d;
+$color-orange6: #792800;
+$color-orange7: #ffe0d3;
+$color-orange8: #9c3400;
+
+
+/*文字大小*/
+$front12: 12px;
+$front13: 13px;
+$front14: 14px;
+$front15: 15px;
+$front16: 16px;
+$front17: 17px;
+
+
+
+
+
+
+/*header漸層色*/
+@mixin gradient-blue {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0188fe+0,127dd9+96,0064bb+96 */
+    background: #0188fe; /* Old browsers */
+    background: -moz-linear-gradient(top, #0188fe 0%, #127dd9 98%, #0064bb 98%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #0188fe 0%,#127dd9 98%,#0064bb 98%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #0188fe 0%,#127dd9 98%,#0064bb 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0188fe', endColorstr='#0064bb',GradientType=0 ); /* IE6-9 */
 }
 
-html,body {
-    height:100%;
-    margin:0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*按鈕*/
+button {
+    outline: none;
 }
 
-header{
-	$headerTop:60px;
-  
-  	height: 170px;
 
-	.theTop{
-		border-bottom: solid;
-		height: 30px;
-		.theMarquee{
-		position: absolute;
-		top:5px;
-		width: 80%;
-		right: 0px;
-		}
-	}
-	.menu{
-		position: absolute;
-		max-width:720px;
-		top:$headerTop;
-		left:9%;
-		width:720px;
-		height:140px;
-	}
-	.loginPage{
-		position: absolute;
-		top:$headerTop;
-		right: 10px;
-		width: 450px;
-		height: 200px;
-	}
+
+
+
+
+
+
+
+@mixin scrollbar_blue2 {
+    //float: left;
+    //height: 300px;
+    width: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #0ae;
+        background-image: -webkit-gradient(linear, 0 0, 0 100%,
+                        color-stop(.5, rgba(255, 255, 255, .2)),
+                        color-stop(.5, transparent), to(transparent));
+    }
 }
 
-main{
-    // min-height:600px;
-    background: #0147A7;
-    height: calc(100% - 435px);
-   bulletin-page, control-money, member-center{
-       #content{
+
+
+
+
+
+/*main_title樣式*/
+@mixin main_title1 {
+    color: $color-gray4;
+    font-size: 25px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 0 0 20px;
+    border-bottom: 1px solid #b2b2b2;
+}
+
+
+
+
+/**/
+
+
+//主文件
+html,
+body {
+    font-family: "\5FAE\8EDF\6B63\9ED1\9AD4","Microsoft JhengHei","MingLiU","sans-serif","Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ff0000;
+    background: #ededed;
+}
+body {
+    //@include scrollbar_blue2;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+//頁面上方bar
+header {  
+    @include gradient-blue;
+    border-bottom: 2px solid #adafae;
+    height: 150px;
+    width: 100%;
+    min-width: 1340px;
+    position: relative;
+    top: 0;
+    z-index: 999;
+    &::before {
+        content: "";
+        display: block;
+        background: url(../img/header/white_bg.png) no-repeat;
+        width: 488px;
+        height: 148px;
+        margin: 0 0 0 30%;
+        position: absolute;
+        clear: both;
+    }
+    .top {
+        width: 100%;
+        height: 30px;
+        &::before {}
+        &::after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            display: block;
+            background: $color-blue1;
+            border-top: 1px solid rgb(60%,60%,60%);
+            border-bottom: 1px solid rgb(30%,30%,30%);
+            margin: 15px 0 0 0;
+            clear: both;
+        }
+    }
+    .down {
+        .logo {
+            float: left;
+            background: url(../img/header/logo.png) no-repeat;
+            width: 229px;
+            height: 70px;
+            margin: 20px 0 0 0;
+        }
+        .menu {
+            min-width: 480px;
+            margin: 60px 0 0 50px;
+            float: left;            
             position: relative;
-            background-color: lightblue;
-            top: 50px;
-            width: 70%;
-			margin: 20px auto;
-			height: 500px;
-       }
+            z-index: 99;
+            span {
+                font-size: 18px;
+                color: $color-gray2;
+                cursor: pointer;
+                padding: 0 10px;
+                &:hover, &.active {
+                    color: $color-white;
+                    font-weight: bold;
+                    border-bottom: 5px solid rgb(255, 255, 255);
+                    padding: 54px 10px 31px 10px;
+                }
+            }
+            
+        }
     }
-    bulletin-page{
-		.dtime{
-			width:400px;
-			border-right: 1px solid #000000;
-		}
-		.data{
-			width:800px;
-		}
-    }
-
-	member-center,control-money{
-		$ul_width:20%;
-		ul.item{
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-			width: $ul_width;
-			height:100%;
-			background-color: #f1f1f1;
-			border: 1px solid #555;
-			position: relative;
-    		overflow: auto;
-			li{
-				padding: 8px 16px;
-				display: block;
-				text-align: center;
-    			border-bottom: 1px solid #555;
-			}
-			li.list:last-child {
-				border-bottom: none;
-			}
-			li.active {
-				background-color: lightblue;
-				color: white;
-			}
-			li:hover:not(.active) {
-				background-color: #555;
-				color: white;
-			}
-			ul.list{
-				margin: 0;
-				padding: 0;
-			}
-		}
-		.content{
-			position: absolute;
-			margin-left: $ul_width;
-    		top: 0;
-			padding:1px 16px;
-			height:100%;
-			width:80%;
-			background-color: #fff;
-		}
-	}
-
 }
 
-footer{
-	height: 265px;
-	border-top: solid;
-	ul {
-		list-style-type: none;
-	}
-	li {
-    	float: left; 
-		width: 218px;
-		height: 52px;
-	}
+//主要頁面區塊
+main {
+    //height: calc(100vh - 155px);
+    // min-height: 800px;
+    background: #ededed;
+    font-size: 50px;
+    width: 100%;
+    position: relative;
+    display: block;
+    @include scrollbar_blue2;
+    height: calc(100% - 150px);
+    //height: calc(100% - 150px);
+    .main_center {
+        width: 1340px;
+        margin: 0 auto;
+        position: relative;
+        min-height: 100%;
+        background: #ffffff;
+        border-left: 1px solid #b2b2b2;
+        border-right: 1px solid #b2b2b2;
+        .main_title {
+            @include main_title1;
+        }
+    }
+}
+
+//頁面註腳
+footer {
+    background: $color-blue4;
+    color: $color-blue6;
+    .footer {
+        font-size: 12px;
+        text-align: center;
+        padding: 5px 0;
+    }
+}
+
+
+//RWD
+@media screen and (min-height:847px) {
+    main {
+        .main_center {}
+    }
 }

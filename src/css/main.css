@@ -1,92 +1,133 @@
-* {
-  font-family: Helvetica Neue, Microsoft JhengHei; }
+@charset "UTF-8";
+/*單一顏色*/
+/*文字大小*/
+/*header漸層色*/
+/*按鈕*/
+button {
+  outline: none; }
 
-html, body {
+/*main_title樣式*/
+/**/
+html,
+body {
+  font-family: "\5FAE\8EDF\6B63\9ED1\9AD4","Microsoft JhengHei","MingLiU","sans-serif","Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #ff0000;
+  background: #ededed; }
+
+body {
   height: 100%;
-  margin: 0; }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-y: hidden; }
 
 header {
-  height: 170px; }
-  header .theTop {
-    border-bottom: solid;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0188fe+0,127dd9+96,0064bb+96 */
+  background: #0188fe;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #0188fe 0%, #127dd9 98%, #0064bb 98%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #0188fe 0%, #127dd9 98%, #0064bb 98%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #0188fe 0%, #127dd9 98%, #0064bb 98%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0188fe', endColorstr='#0064bb',GradientType=0 );
+  /* IE6-9 */
+  border-bottom: 2px solid #adafae;
+  height: 150px;
+  width: 100%;
+  min-width: 1340px;
+  position: relative;
+  top: 0;
+  z-index: 999; }
+  header::before {
+    content: "";
+    display: block;
+    background: url(../img/header/white_bg.png) no-repeat;
+    width: 488px;
+    height: 148px;
+    margin: 0 0 0 30%;
+    position: absolute;
+    clear: both; }
+  header .top {
+    width: 100%;
     height: 30px; }
-    header .theTop .theMarquee {
-      position: absolute;
-      top: 5px;
-      width: 80%;
-      right: 0px; }
-  header .menu {
-    position: absolute;
-    max-width: 720px;
-    top: 60px;
-    left: 9%;
-    width: 720px;
-    height: 140px; }
-  header .loginPage {
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 450px;
-    height: 200px; }
+    header .top::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      display: block;
+      background: #0186fa;
+      border-top: 1px solid #999999;
+      border-bottom: 1px solid #4c4c4c;
+      margin: 15px 0 0 0;
+      clear: both; }
+  header .down .logo {
+    float: left;
+    background: url(../img/header/logo.png) no-repeat;
+    width: 229px;
+    height: 70px;
+    margin: 20px 0 0 0; }
+  header .down .menu {
+    min-width: 480px;
+    margin: 60px 0 0 50px;
+    float: left;
+    position: relative;
+    z-index: 99; }
+    header .down .menu span {
+      font-size: 18px;
+      color: #efefef;
+      cursor: pointer;
+      padding: 0 10px; }
+      header .down .menu span:hover, header .down .menu span.active {
+        color: #fff;
+        font-weight: bold;
+        border-bottom: 5px solid white;
+        padding: 54px 10px 31px 10px; }
 
 main {
-  background: #0147A7;
-  height: calc(100% - 435px); }
-  main bulletin-page #content, main control-money #content, main member-center #content {
+  background: #ededed;
+  font-size: 50px;
+  width: 100%;
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow-y: scroll;
+  height: calc(100% - 150px); }
+  main::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5; }
+  main::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #F5F5F5; }
+  main::-webkit-scrollbar-thumb {
+    background-color: #0ae;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(transparent)); }
+  main .main_center {
+    width: 1340px;
+    margin: 0 auto;
     position: relative;
-    background-color: lightblue;
-    top: 50px;
-    width: 70%;
-    margin: 20px auto;
-    height: 500px; }
-  main bulletin-page .dtime {
-    width: 400px;
-    border-right: 1px solid #000000; }
-  main bulletin-page .data {
-    width: 800px; }
-  main member-center ul.item, main control-money ul.item {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 20%;
-    height: 100%;
-    background-color: #f1f1f1;
-    border: 1px solid #555;
-    position: relative;
-    overflow: auto; }
-    main member-center ul.item li, main control-money ul.item li {
-      padding: 8px 16px;
-      display: block;
-      text-align: center;
-      border-bottom: 1px solid #555; }
-    main member-center ul.item li.list:last-child, main control-money ul.item li.list:last-child {
-      border-bottom: none; }
-    main member-center ul.item li.active, main control-money ul.item li.active {
-      background-color: lightblue;
-      color: white; }
-    main member-center ul.item li:hover:not(.active), main control-money ul.item li:hover:not(.active) {
-      background-color: #555;
-      color: white; }
-    main member-center ul.item ul.list, main control-money ul.item ul.list {
-      margin: 0;
-      padding: 0; }
-  main member-center .content, main control-money .content {
-    position: absolute;
-    margin-left: 20%;
-    top: 0;
-    padding: 1px 16px;
-    height: 100%;
-    width: 80%;
-    background-color: #fff; }
+    min-height: 100%;
+    background: #ffffff;
+    border-left: 1px solid #b2b2b2;
+    border-right: 1px solid #b2b2b2; }
+    main .main_center .main_title {
+      color: #444444;
+      font-size: 25px;
+      font-weight: bold;
+      height: 60px;
+      line-height: 60px;
+      padding: 0 0 0 20px;
+      border-bottom: 1px solid #b2b2b2; }
 
 footer {
-  height: 265px;
-  border-top: solid; }
-  footer ul {
-    list-style-type: none; }
-  footer li {
-    float: left;
-    width: 218px;
-    height: 52px; }
+  background: #0b8bf7;
+  color: #8ecbff; }
+  footer .footer {
+    font-size: 12px;
+    text-align: center;
+    padding: 5px 0; }
 
 /*# sourceMappingURL=main.css.map */

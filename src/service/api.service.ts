@@ -3,10 +3,9 @@ import { Http, Response, URLSearchParams, Headers, RequestOptions } from '@angul
 import { Observable } from 'rxjs';
 import { host } from 'lib/config';
 import { ResponseData } from 'lib/IResponse';
-import { Router } from '@angular/router';
 @Injectable()
 export class ApiService {
-	constructor(private http: Http,private router: Router) { }
+	constructor(private http: Http) { }
 	/**
 	 * api路徑
 	 */
@@ -39,13 +38,7 @@ export class ApiService {
 		sessionStorage.clear();
 		console.log('destory user data');
 	}
-    /**
-	 * 跳轉頁面
-	 * <參數>args(array)[0:頁面, 1:彩種(shishi,fenghuang會用到)]
-	 */
-	goPage(args: string[]) {
-		this.router.navigate(args);
-	}
+
 	/**
 	*	設定 showLogin 值
 	*/
@@ -94,7 +87,6 @@ export class ApiService {
 			if (test.msg == 'logout'&&test.status) {
 				alert(test.msg);
 				this.destroyUserData();//logout
-				this.goPage(['main']);
 				this.setShowLogin(true);
 			}
 			return test || { };
