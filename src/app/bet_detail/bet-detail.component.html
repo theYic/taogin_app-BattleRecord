@@ -1,0 +1,88 @@
+<h1>下注明細</h1>
+<table class="orderinfo">
+    <tbody>
+        <tr class="announce1">
+            <td>單號</td>
+            <td>交易時間</td>
+            <td>開賽時間</td>
+            <td>賽事</td>
+            <td>注單內容</td>
+            <td>金額</td>
+            <td>獲利%</td>
+            <td>預估金額(+退水)</td>
+        </tr>
+        <tr class="orderar" *ngFor="let list of data" >
+            <td class="ordertd">{{list.bid}}</td>
+            <td class="ordertd">{{list.btime}}</td>
+            <td class="ordertd">{{list.stime}}</td>
+            <td class="ordertd">{{list.ht+'[主]VS'+list.ct}}</td>
+            <td class="ordertd">{{'玩法:'+list.ptype+'  5%'+'選項:'+list.option}}</td>
+            <td class="ordertd" >{{list.gold}}</td>
+            <td class="ordertd">{{list.profit+'%'}}</td>
+            <td class="ordertd">{{list.gold*(list.profit/100)+list.water}}</td>
+        </tr>
+        <tr class="orderar" style="background-color:#c3d7f8;">
+            <td style="color:#000000;height:40px;text-align:left;padding-left:5px;"  class="ordertd" colspan="5">{{'共有'+data?.length+'筆資料'}}</td>
+            <td class="ordertd">{{allGold}}</td>
+            <td class="ordertd"></td>
+            <td class="ordertd" [style.color]="estimateGold > 0?'green':'red'">{{estimateGold}}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+<style type="text/css">
+.orderinfo {
+    width: 95%;
+    height: auto;
+    background-color: #254b8c;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: 細明體;
+    font-size: 14px;
+    padding-bottom: 5px;
+    margin-left: 25px;
+}
+.announce1 {
+    background-color: #000000;
+    color: #ffffff;
+    height: 35px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    margin-left: 15px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.announce1 td {
+    vertical-align: middle;
+    text-align: center;
+    background-color: #5585d7;
+    border-right: 1px solid #26498b;
+}
+.orderar {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    padding-right: 5px;
+    font-family: �ө���;
+    font-size: 14px;
+}
+.ott{
+    color: #000000;
+    height: 40px;
+    text-align: left;
+    padding-left: 5px;
+}
+.orderar td {
+    vertical-align: middle;
+}
+.ordertd {
+    border: 0px solid #ffffff;
+    color: #000000;
+    padding-right: 5px;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #26498b;
+}
+
+</style>

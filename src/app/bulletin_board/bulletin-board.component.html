@@ -1,0 +1,23 @@
+<div id="content">
+    <div>最新公告</div>
+    <hr>
+    <div>
+        <button (click)="getPublicData()">網站公告</button>
+        <button (click)="getUserData()">個人資訊</button>
+        <div *ngIf="(judgeContent == 'noData' )">暫無公告</div>
+        <table *ngIf="(judgeContent == 'publicData' || judgeContent == 'userData')">
+            <thead>
+                <tr>
+                    <th class="dtime">時間</th>
+                    <th class="data">主題</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let list of billboardData">
+                    <td class="dtime">{{list.dtime}}</td>
+                    <td class="data">{{list.content}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

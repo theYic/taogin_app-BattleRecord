@@ -1,0 +1,17 @@
+<header>
+	<div class="theTop">
+		<div>{{nowTime}}</div>
+		<marquee class="theMarquee" *ngIf="!globals.getShowLogin()">{{marqueeData}}</marquee>
+	</div>
+	<div class="menu" *ngIf="!globals.getShowLogin()">
+		<span (click)="changePage('gametable')">賽事列表</span>
+		<span (click)="changePage('betdetail')">下注明細</span>
+		<span (click)="changePage('bethistory')">歷史帳務</span>
+		<span (click)="changePage('gameresult')">賽事結果</span>
+		<span (click)="changePage('bulletinboard')">公告</span>
+	</div>
+	<!--登入頁面-->
+	<div class="loginPage">
+		<login></login>
+	</div>
+</header>

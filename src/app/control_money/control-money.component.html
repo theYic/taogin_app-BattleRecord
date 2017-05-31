@@ -1,0 +1,21 @@
+<div id="content">
+    <ul class="item">
+        <li [class.active]="deposit" (click)="deposit = !deposit">存款專區</li>
+        <ul class="list" *ngIf="deposit">
+            <li [class.active]=" selectItem == 'Online' " (click)="changeSelectItem('Online')">在現支付</li>
+            <li [class.active]=" selectItem == 'postscript' " (click)="changeSelectItem('postscript')">附言存款</li>
+            <li [class.active]=" selectItem == 'serial' " (click)="changeSelectItem('serial')">流水號存款</li>
+            <li [class.active]=" selectItem == 'wechat' " (click)="changeSelectItem('wechat')">微信轉帳</li>
+        </ul>
+        <li [class.active]=" selectItem == 'withdrawal' " (click)="changeSelectItem('withdrawal')">提款專區</li>
+        <li class="list" [class.active]=" selectItem == 'record' " (click)="changeSelectItem('record')">交易紀錄</li>
+    </ul>
+    <div class="content" [ngSwitch]="selectItem">
+        <deposit-default *ngSwitchCase="'Online'"></deposit-default>
+        <deposit-default *ngSwitchCase="'postscript'"></deposit-default>
+        <deposit-serial *ngSwitchCase="'serial'"></deposit-serial>
+        <deposit-wechat *ngSwitchCase="'wechat'"></deposit-wechat>
+        <withdrawal *ngSwitchCase="'withdrawal'"></withdrawal>
+        <record *ngSwitchCase="'record'"></record>
+    </div>
+</div>

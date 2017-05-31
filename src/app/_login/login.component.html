@@ -1,0 +1,20 @@
+<form (ngSubmit)="login()" *ngIf="globals.getShowLogin()">
+    <div>
+        <input type="text"  placeholder="帳號" [(ngModel)]="username" name="username">
+        <input type="password" placeholder="密碼" [(ngModel)]="password" name="password">
+    </div>
+    <input type="checkbox"  [(ngModel)]="isRemember" name="isRemember">
+    <label>記住密碼</label>
+    <button type="submit" >登入</button>
+</form>
+<form (ngSubmit)="logout()" *ngIf="!globals.getShowLogin()">
+    <div>
+        <label>帳戶餘額:</label>
+        <input type="text"  [(ngModel)]="surplus" name="surplus" readonly>
+        <label>帳號</label>
+        <input type="text"  [(ngModel)]="username" name="username" readonly>
+    </div>
+    <button type="button" (click)="changePage('controlmoney')">充值與提領</button>
+    <button type="button" (click)="changePage('membercenter')">會員中心</button>
+    <button type="submit">登出</button>
+</form>

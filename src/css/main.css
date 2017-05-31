@@ -1,0 +1,92 @@
+* {
+  font-family: Helvetica Neue, Microsoft JhengHei; }
+
+html, body {
+  height: 100%;
+  margin: 0; }
+
+header {
+  height: 170px; }
+  header .theTop {
+    border-bottom: solid;
+    height: 30px; }
+    header .theTop .theMarquee {
+      position: absolute;
+      top: 5px;
+      width: 80%;
+      right: 0px; }
+  header .menu {
+    position: absolute;
+    max-width: 720px;
+    top: 60px;
+    left: 9%;
+    width: 720px;
+    height: 140px; }
+  header .loginPage {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 450px;
+    height: 200px; }
+
+main {
+  background: #0147A7;
+  height: calc(100% - 435px); }
+  main bulletin-page #content, main control-money #content, main member-center #content {
+    position: relative;
+    background-color: lightblue;
+    top: 50px;
+    width: 70%;
+    margin: 20px auto;
+    height: 500px; }
+  main bulletin-page .dtime {
+    width: 400px;
+    border-right: 1px solid #000000; }
+  main bulletin-page .data {
+    width: 800px; }
+  main member-center ul.item, main control-money ul.item {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    height: 100%;
+    background-color: #f1f1f1;
+    border: 1px solid #555;
+    position: relative;
+    overflow: auto; }
+    main member-center ul.item li, main control-money ul.item li {
+      padding: 8px 16px;
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid #555; }
+    main member-center ul.item li.list:last-child, main control-money ul.item li.list:last-child {
+      border-bottom: none; }
+    main member-center ul.item li.active, main control-money ul.item li.active {
+      background-color: lightblue;
+      color: white; }
+    main member-center ul.item li:hover:not(.active), main control-money ul.item li:hover:not(.active) {
+      background-color: #555;
+      color: white; }
+    main member-center ul.item ul.list, main control-money ul.item ul.list {
+      margin: 0;
+      padding: 0; }
+  main member-center .content, main control-money .content {
+    position: absolute;
+    margin-left: 20%;
+    top: 0;
+    padding: 1px 16px;
+    height: 100%;
+    width: 80%;
+    background-color: #fff; }
+
+footer {
+  height: 265px;
+  border-top: solid; }
+  footer ul {
+    list-style-type: none; }
+  footer li {
+    float: left;
+    width: 218px;
+    height: 52px; }
+
+/*# sourceMappingURL=main.css.map */
