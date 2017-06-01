@@ -1,1 +1,5 @@
 <header-toolbar></header-toolbar>
+<div [ngSwitch]="api.postData[0]">
+    <battle-record *ngSwitchCase="'battleRecord'"></battle-record>
+    <qrcode *ngSwitchCase="'qrcode'"></qrcode>
+</div>

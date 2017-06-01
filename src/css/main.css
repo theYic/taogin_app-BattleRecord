@@ -1,4 +1,53 @@
 @charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 /*單一顏色*/
 /*文字大小*/
 /*header漸層色*/
@@ -63,6 +112,12 @@ header {
       border-bottom: 1px solid #4c4c4c;
       margin: 15px 0 0 0;
       clear: both; }
+    header .top .time {
+      line-height: 30px;
+      color: #fff;
+      font-size: 16px;
+      float: left;
+      padding: 0 0 0 10px; }
   header .down .logo {
     float: left;
     background: url(../img/header/logo.png) no-repeat;
@@ -129,5 +184,55 @@ footer {
     font-size: 12px;
     text-align: center;
     padding: 5px 0; }
+
+main.record {
+  font-size: 16px;
+  background-color: #f8f8f8; }
+  main.record .content {
+    padding: 10px; }
+  main.record table {
+    border-collapse: collapse;
+    width: 100%; }
+    main.record table caption {
+      padding: 12px;
+      color: #ff6600;
+      font-size: 22px;
+      font-weight: bold; }
+  main.record td, main.record th {
+    border: 1px solid #645a5a;
+    text-align: center;
+    padding: 12px 8px;
+    color: #333333; }
+  main.record tr {
+    background-color: #ededed; }
+    main.record tr th {
+      background-color: #c6c6c6;
+      font-weight: bold;
+      color: #000000; }
+    main.record tr td:nth-child(1) {
+      background-color: #ff6600;
+      color: #ffffff; }
+    main.record tr td:nth-child(5), main.record tr td:nth-child(6) {
+      font-weight: bold;
+      color: #ff4e00; }
+  main.record tr:nth-child(even) {
+    background-color: #f7f7f7; }
+    main.record tr:nth-child(even) td:nth-child(1) {
+      background-color: #ff8b55; }
+
+main.record {
+  font-size: 16px;
+  background-color: #f8f8f8; }
+  main.record .content {
+    padding: 10px;
+    text-align: center; }
+    main.record .content .title {
+      padding: 12px;
+      color: #ff6600;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 30px; }
+    main.record .content .qrcode {
+      margin: 30px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,7 +1,7 @@
 
 declare var url: {
     gateway: string,
-    lan: string
+    lang: string
 };
 
-export let host = url;
+export let configData = url;

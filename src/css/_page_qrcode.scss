@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+main.record {
+    // height: 100%;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    .content{
+        padding: 10px;
+        text-align: center;
+        .title {
+            padding: 12px;
+            color: #ff6600;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 30px;
+        }
+        .qrcode{
+            margin: 30px;
+        }
+    }
+}

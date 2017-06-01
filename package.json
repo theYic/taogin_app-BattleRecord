@@ -4,7 +4,7 @@
   "description": "taogin app project",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
+    "build": "rimraf battleRecord && webpack --config config/webpack.prod.js --progress --profile --bail"
   },
   "dependencies": {
     "@angular/common": "~4.1.0",

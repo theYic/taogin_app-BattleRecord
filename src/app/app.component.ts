@@ -7,7 +7,7 @@ import { ApiService } from 'service';
 	templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit, OnDestroy {
-	constructor(private api: ApiService) { }
+	constructor(public api: ApiService) { }
 
 	ngOnInit() {
 	}

@@ -11,7 +11,7 @@ var ngtools = require('@ngtools/webpack');
 module.exports = webpackMerge(commonConfig, {
 
 	output: {
-		path: helpers.root('dist'),
+		path: helpers.root('battleRecord'),
 		publicPath: './',
 		filename: '[name].js',
 		chunkFilename: '[id].chunk.js'

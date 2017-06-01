@@ -184,6 +184,13 @@ header {
             margin: 15px 0 0 0;
             clear: both;
         }
+         .time {
+            line-height: 30px;
+            color: $color-white;
+            font-size: $front16;
+            float: left;
+            padding: 0 0 0 10px;
+        }
     }
     .down {
         .logo {
