@@ -12,7 +12,7 @@ export class BattleRecordComponent implements OnInit, OnDestroy {
     /**
      * 現在時間
      */
-    public nowTime : string = "";
+    public data : string = "";
     /**
      * 當前語言 顯示的名稱
      */
@@ -26,7 +26,14 @@ export class BattleRecordComponent implements OnInit, OnDestroy {
     ngOnInit() {
 
     }
-
+    getBattleRecord(){
+        //  this.api.postServer(925, {} ).subscribe(res => {
+        //         if(!res.err){
+        //             console.log("user-data->更改會員資訊",res);
+        //             return;
+        //         }
+        //  }
+    }
     ngOnDestroy(){
     }
 }

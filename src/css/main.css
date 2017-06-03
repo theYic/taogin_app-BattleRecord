@@ -231,8 +231,20 @@ main.record {
       color: #ff6600;
       font-size: 22px;
       font-weight: bold;
-      margin: 30px; }
+      margin: 10px; }
     main.record .content .qrcode {
       margin: 30px; }
+    main.record .content .wechatQrcode {
+      float: left;
+      background: url(../img//wechat_qrcode.png) no-repeat;
+      width: 260px;
+      height: 325px;
+      margin: 0px 0px 0px 110px; }
+    main.record .content .qqQrcode {
+      float: left;
+      background: url(../img//qq_qrcode.png) no-repeat;
+      width: 260px;
+      height: 325px;
+      margin: 0px 0px 0px 110px; }
 
 /*# sourceMappingURL=main.css.map */
