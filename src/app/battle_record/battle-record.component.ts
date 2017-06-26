@@ -24,9 +24,10 @@ export class BattleRecordComponent implements OnInit, OnDestroy {
     constructor(public api: ApiService) { }
 
     ngOnInit() {
-
+        this.getBattleRecord();
     }
     getBattleRecord(){
+        this.data = "1";
         //  this.api.postServer(925, {} ).subscribe(res => {
         //         if(!res.err){
         //             console.log("user-data->更改會員資訊",res);

@@ -50,13 +50,15 @@ table {
 
 /*單一顏色*/
 /*文字大小*/
-/*header漸層色*/
+/*header漸層色 紫 斜向/上下*/
+/*header top漸層色 金 斜向/上下*/
+/*glc漸層色 紫>亮紫>紫 斜向 */
+/*漸層色 金>亮金>金*/
 /*按鈕*/
 button {
   outline: none; }
 
 /*main_title樣式*/
-/**/
 html,
 body {
   font-family: "\5FAE\8EDF\6B63\9ED1\9AD4","Microsoft JhengHei","MingLiU","sans-serif","Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -72,50 +74,41 @@ body {
   overflow-y: hidden; }
 
 header {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0188fe+0,127dd9+96,0064bb+96 */
-  background: #0188fe;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #0188fe 0%, #127dd9 98%, #0064bb 98%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #0188fe 0%, #127dd9 98%, #0064bb 98%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #0188fe 0%, #127dd9 98%, #0064bb 98%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0188fe', endColorstr='#0064bb',GradientType=0 );
-  /* IE6-9 */
-  border-bottom: 2px solid #adafae;
-  height: 150px;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#41195a+0,820f55+100 */
+  background: linear-gradient(135deg, rgba(245, 10, 90, 0.4) 0%, rgba(245, 10, 90, 0) 16%, rgba(245, 10, 90, 0) 34%, rgba(245, 10, 90, 0.4) 50%, rgba(245, 10, 90, 0) 66%, rgba(245, 10, 90, 0) 84%, rgba(245, 10, 90, 0.4) 100%), linear-gradient(180deg, #4b145a 20%, #5a145a 50%, #820f55 100%);
+  border-bottom: 2px solid #c3a05a;
+  height: 125px;
   width: 100%;
-  min-width: 1340px;
   position: relative;
   top: 0;
   z-index: 999; }
   header::before {
     content: "";
     display: block;
-    background: url(../img/header/white_bg.png) no-repeat;
-    width: 488px;
-    height: 148px;
-    margin: 0 0 0 30%;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
     position: absolute;
     clear: both; }
   header .top {
+    background: linear-gradient(135deg, rgba(205, 180, 110, 0.4) 0%, rgba(205, 180, 110, 0) 25%, rgba(205, 180, 110, 0.4) 50%, rgba(205, 180, 110, 0) 75%, rgba(205, 180, 110, 0.4) 100%), linear-gradient(180deg, #d2b973 20%, #bea064 50%, #aa8750 100%);
     width: 100%;
     height: 30px; }
     header .top::after {
       content: "";
       width: 100%;
-      height: 1px;
+      height: 0px;
       display: block;
       background: #0186fa;
       border-top: 1px solid #999999;
-      border-bottom: 1px solid #4c4c4c;
+      border-bottom: 1px solid #4d4d4d;
       margin: 15px 0 0 0;
       clear: both; }
     header .top .time {
       line-height: 30px;
       color: #fff;
-      font-size: 16px;
+      font-size: 14px;
       float: left;
       padding: 0 0 0 10px; }
   header .down .logo {
@@ -123,33 +116,17 @@ header {
     background: url(../img/header/logo.png) no-repeat;
     width: 229px;
     height: 70px;
-    margin: 20px 0 0 0; }
-  header .down .menu {
-    min-width: 480px;
-    margin: 60px 0 0 50px;
-    float: left;
-    position: relative;
-    z-index: 99; }
-    header .down .menu span {
-      font-size: 18px;
-      color: #efefef;
-      cursor: pointer;
-      padding: 0 10px; }
-      header .down .menu span:hover, header .down .menu span.active {
-        color: #fff;
-        font-weight: bold;
-        border-bottom: 5px solid white;
-        padding: 54px 10px 31px 10px; }
+    margin: 20px 0 0 40px;
+    background-size: contain; }
 
 main {
   background: #ededed;
   font-size: 50px;
-  width: 100%;
   position: relative;
   display: block;
   width: 100%;
   overflow-y: scroll;
-  height: calc(100% - 150px); }
+  min-height: calc(100% - 127px); }
   main::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5; }
@@ -161,21 +138,13 @@ main {
     background-color: #0ae;
     background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.5, transparent), to(transparent)); }
   main .main_center {
-    width: 1340px;
     margin: 0 auto;
-    position: relative;
-    min-height: 100%;
-    background: #ffffff;
-    border-left: 1px solid #b2b2b2;
-    border-right: 1px solid #b2b2b2; }
-    main .main_center .main_title {
-      color: #444444;
-      font-size: 25px;
-      font-weight: bold;
-      height: 60px;
-      line-height: 60px;
-      padding: 0 0 0 20px;
-      border-bottom: 1px solid #b2b2b2; }
+    background: #ffffff; }
+  main .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -50px; }
 
 footer {
   background: #0b8bf7;
@@ -185,66 +154,61 @@ footer {
     text-align: center;
     padding: 5px 0; }
 
-main.record {
-  font-size: 16px;
-  background-color: #f8f8f8; }
-  main.record .content {
-    padding: 10px; }
-  main.record table {
-    border-collapse: collapse;
-    width: 100%; }
-    main.record table caption {
-      padding: 12px;
-      color: #ff6600;
-      font-size: 22px;
-      font-weight: bold; }
-  main.record td, main.record th {
-    border: 1px solid #645a5a;
-    text-align: center;
-    padding: 12px 8px;
-    color: #333333; }
-  main.record tr {
+main .main_center {
+  width: 100%; }
+  main .main_center .record {
+    font-size: 16px;
     background-color: #ededed; }
-    main.record tr th {
-      background-color: #c6c6c6;
+    main .main_center .record .content {
+      padding: 20px; }
+    main .main_center .record table {
+      border-collapse: collapse;
+      width: 100%; }
+      main .main_center .record table caption {
+        padding: 12px 20px;
+        line-height: 28px;
+        color: #fff;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#af8c55+1,c8a55f+35,c8a55f+65,af8c55+100 */
+        background: #af8c55;
+        /* Old browsers */
+        background: -moz-linear-gradient(left, #af8c55 1%, #c8a55f 35%, #c8a55f 65%, #af8c55 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(left, #af8c55 1%, #c8a55f 35%, #c8a55f 65%, #af8c55 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to right, #af8c55 1%, #c8a55f 35%, #c8a55f 65%, #af8c55 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#af8c55', endColorstr='#af8c55',GradientType=1 );
+        /* IE6-9 */
+        border-radius: 10px 10px 0 0; }
+    main .main_center .record td, main .main_center .record th {
+      border: 1px solid #645a5a;
+      text-align: center;
+      padding: 12px 8px;
+      color: #333333;
+      line-height: 28px; }
+    main .main_center .record tr:nth-child(odd) {
+      background-color: #dddddd; }
+    main .main_center .record tr:nth-child(even) {
+      background-color: #f7f7f7; }
+    main .main_center .record tr.title {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2d1e73+1,6e195a+35,6e195a+65,2d1e73+100 */
+      background: #2d1e73;
+      /* Old browsers */
+      background: -moz-linear-gradient(-30deg, #2d1e73 0%, #6e195a 40%, #6e195a 60%, #2d1e73 100%);
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(-30deg, #2d1e73 0%, #6e195a 40%, #6e195a 60%, #2d1e73 100%);
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(150deg, #2d1e73 0%, #6e195a 40%, #6e195a 60%, #2d1e73 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d1e73', endColorstr='#2d1e73',GradientType=1 );
+      /* IE6-9 fallback on horizontal gradient */ }
+      main .main_center .record tr.title th {
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px; }
+    main .main_center .record tr td:nth-child(5), main .main_center .record tr td:nth-child(6) {
       font-weight: bold;
-      color: #000000; }
-    main.record tr td:nth-child(1) {
-      background-color: #ff6600;
-      color: #ffffff; }
-    main.record tr td:nth-child(5), main.record tr td:nth-child(6) {
-      font-weight: bold;
-      color: #ff4e00; }
-  main.record tr:nth-child(even) {
-    background-color: #f7f7f7; }
-    main.record tr:nth-child(even) td:nth-child(1) {
-      background-color: #ff8b55; }
-
-main.record {
-  font-size: 16px;
-  background-color: #f8f8f8; }
-  main.record .content {
-    padding: 10px;
-    text-align: center; }
-    main.record .content .title {
-      padding: 12px;
-      color: #ff6600;
-      font-size: 22px;
-      font-weight: bold;
-      margin: 10px; }
-    main.record .content .qrcode {
-      margin: 30px; }
-    main.record .content .wechatQrcode {
-      float: left;
-      background: url(../img//wechat_qrcode.png) no-repeat;
-      width: 260px;
-      height: 325px;
-      margin: 0px 0px 0px 110px; }
-    main.record .content .qqQrcode {
-      float: left;
-      background: url(../img//qq_qrcode.png) no-repeat;
-      width: 260px;
-      height: 325px;
-      margin: 0px 0px 0px 110px; }
-
-/*# sourceMappingURL=main.css.map */
+      color: #2d1e73; }

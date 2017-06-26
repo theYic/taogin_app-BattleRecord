@@ -15,7 +15,7 @@ export class ApiService {
 	constructor(private http: Http) {
 		//只會回傳單一參數
 		this.postData = location.search.slice(1).split('=');
-		// this.postData = ["qrcode","QQ"];
+		this.postData = ['battleRecord'];
 	}
 	/**
 	 * api路徑

@@ -1,9 +1,10 @@
-<main class="record">
-<!--<div class="loading" *ngIf="!data"><img src="../../img/loading.gif" ></div>-->
+<div class="loading" *ngIf="!data"><img src="../../img/loading.gif" ></div>
+<div class="main_center" *ngIf="data">
+    <div class="record">
         <div class="content" >
             <table>
                 <caption>对战纪录</caption>
-                <tr>
+                <tr class="title">
                     <th colspan="2">赛事时间 [年/月/日/时]</th>
                     <th>主场球队</th>
                     <th>客场球队</th>
@@ -41,8 +42,10 @@
                     <td>廣島三箭</td>
                     <td>1 - 0</td>
                     <td>2 - 0</td>
-                </tr>
-                -->
+                </tr>-->
+                
             </table>
         </div>
-    </main>
+        
+    </div>
+</div>

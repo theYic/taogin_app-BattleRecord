@@ -1,51 +1,65 @@
 @charset "utf-8";
 
-main.record {
-    // height: 100%;
-    font-size: 16px;
-    background-color: #f8f8f8;
-    .content{
-        padding: 10px;
-    }
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        caption {
-            padding: 12px;
-            color: #ff6600;
-            font-size: 22px;
-            font-weight: bold;
-        }
-    }
-
-    td, th {
-        border: 1px solid #645a5a;
-        text-align: center;
-        padding: 12px 8px;
-        color: #333333;
-    }  
-
-    tr {
+main .main_center {
+    width: 100%;
+    .record {
+        font-size: 16px;
         background-color: #ededed;
-        th {
-            background-color: #c6c6c6;
-            font-weight: bold;
-            color: #000000;
+        .content{
+            padding: 20px;
         }
-        td:nth-child(1) {
-            background-color: #ff6600;
-            color: #ffffff;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            caption {
+                padding: 12px 20px;
+                line-height: 28px;
+                color: #fff;
+                font-size: 22px;
+                font-weight: bold;
+                letter-spacing: 3px;
+                @include gradient-gold1;
+                border-radius: 10px 10px 0 0;
+            }
         }
-        td:nth-child(5), td:nth-child(6) {
-            font-weight: bold;
-            color: #ff4e00;
-        }
-    }
 
-    tr:nth-child(even) {
-        background-color: #f7f7f7;
-        td:nth-child(1) {
-            background-color: #ff8b55;
+        td, th {
+            border: 1px solid #645a5a;
+            text-align: center;
+            padding: 12px 8px;
+            color: #333333;
+            line-height: 28px;
+        }  
+
+        tr {
+            &:nth-child(odd) {
+                background-color: #dddddd;
+                td:nth-child(1) {
+                    // background-color: #2d1e73;
+                }
+            }
+            &:nth-child(even) {
+                background-color: #f7f7f7;
+                td:nth-child(1) {
+                    // background-color: #eb4646;
+                }
+            }
+            &.title {
+                @include gradient-purple2;
+                th {
+                    color: #fff;
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+            }
+            td:nth-child(1) {
+                // color: #ffffff;
+            }
+            td:nth-child(5), td:nth-child(6) {
+                font-weight: bold;
+                color: #2d1e73;
+            }
         }
+        
     }
-}
+ }

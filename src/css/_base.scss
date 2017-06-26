@@ -44,48 +44,46 @@ $front16: 16px;
 $front17: 17px;
 
 
-
-
-
-
-/*header漸層色*/
-@mixin gradient-blue {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0188fe+0,127dd9+96,0064bb+96 */
-    background: #0188fe; /* Old browsers */
-    background: -moz-linear-gradient(top, #0188fe 0%, #127dd9 98%, #0064bb 98%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, #0188fe 0%,#127dd9 98%,#0064bb 98%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #0188fe 0%,#127dd9 98%,#0064bb 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0188fe', endColorstr='#0064bb',GradientType=0 ); /* IE6-9 */
+/*header漸層色 紫 斜向/上下*/
+@mixin gradient-purple {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#41195a+0,820f55+100 */
+    background: 
+    linear-gradient(135deg, rgba(245,10,90,0.4) 0%, rgba(245,10,90,0) 16%, rgba(245,10,90,0) 34%, rgba(245,10,90,0.4) 50%, rgba(245,10,90,0) 66%, rgba(245,10,90,0) 84%, rgba(245,10,90,0.4) 100%),
+    linear-gradient(180deg, rgba(75,20,90,1) 20%, rgba(90,20,90,1) 50%, rgba(130,15,85,1) 100%);
 }
 
+/*header top漸層色 金 斜向/上下*/
+@mixin gradient-gold {
+    background: 
+    linear-gradient(135deg, rgba(205,180,110,0.4) 0%, rgba(205,180,110,0) 25%, rgba(205,180,110,0.4) 50%, rgba(205,180,110,0) 75%, rgba(205,180,110,0.4) 100%),
+    linear-gradient(180deg, rgba(210,185,115,1) 20%, rgba(190,160,100,1) 50%, rgba(170,135,80,1) 100%);
+}
 
+/*glc漸層色 紫>亮紫>紫 斜向 */
+@mixin gradient-purple2 {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2d1e73+1,6e195a+35,6e195a+65,2d1e73+100 */
+    background: #2d1e73; /* Old browsers */
+    background: -moz-linear-gradient(-30deg, #2d1e73 0%, #6e195a 40%, #6e195a 60%, #2d1e73 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-30deg, #2d1e73 0%,#6e195a 40%,#6e195a 60%,#2d1e73 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(150deg, #2d1e73 0%,#6e195a 40%,#6e195a 60%,#2d1e73 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2d1e73', endColorstr='#2d1e73',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*漸層色 金>亮金>金*/
+@mixin gradient-gold1 {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#af8c55+1,c8a55f+35,c8a55f+65,af8c55+100 */
+    background: #af8c55; /* Old browsers */
+    background: -moz-linear-gradient(left, #af8c55 1%, #c8a55f 35%, #c8a55f 65%, #af8c55 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #af8c55 1%,#c8a55f 35%,#c8a55f 65%,#af8c55 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #af8c55 1%,#c8a55f 35%,#c8a55f 65%,#af8c55 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#af8c55', endColorstr='#af8c55',GradientType=1 ); /* IE6-9 */
+}
 
 
 /*按鈕*/
 button {
     outline: none;
 }
-
-
-
-
-
-
-
 
 
 @mixin scrollbar_blue2 {
@@ -110,11 +108,6 @@ button {
     }
 }
 
-
-
-
-
-
 /*main_title樣式*/
 @mixin main_title1 {
     color: $color-gray4;
@@ -125,12 +118,6 @@ button {
     padding: 0 0 0 20px;
     border-bottom: 1px solid #b2b2b2;
 }
-
-
-
-
-/**/
-
 
 //主文件
 html,
@@ -151,32 +138,33 @@ body {
 
 //頁面上方bar
 header {  
-    @include gradient-blue;
-    border-bottom: 2px solid #adafae;
-    height: 150px;
+    @include gradient-purple;
+    border-bottom: 2px solid #c3a05a;
+    height: 125px;
     width: 100%;
-    min-width: 1340px;
+    // min-width: 1340px;
     position: relative;
     top: 0;
     z-index: 999;
     &::before {
         content: "";
         display: block;
-        background: url(../img/header/white_bg.png) no-repeat;
-        width: 488px;
-        height: 148px;
-        margin: 0 0 0 30%;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
         position: absolute;
         clear: both;
     }
     .top {
+        @include gradient-gold;
         width: 100%;
         height: 30px;
         &::before {}
         &::after {
             content: "";
             width: 100%;
-            height: 1px;
+            height: 0px;
             display: block;
             background: $color-blue1;
             border-top: 1px solid rgb(60%,60%,60%);
@@ -187,7 +175,7 @@ header {
          .time {
             line-height: 30px;
             color: $color-white;
-            font-size: $front16;
+            font-size: $front14;
             float: left;
             padding: 0 0 0 10px;
         }
@@ -198,54 +186,32 @@ header {
             background: url(../img/header/logo.png) no-repeat;
             width: 229px;
             height: 70px;
-            margin: 20px 0 0 0;
-        }
-        .menu {
-            min-width: 480px;
-            margin: 60px 0 0 50px;
-            float: left;            
-            position: relative;
-            z-index: 99;
-            span {
-                font-size: 18px;
-                color: $color-gray2;
-                cursor: pointer;
-                padding: 0 10px;
-                &:hover, &.active {
-                    color: $color-white;
-                    font-weight: bold;
-                    border-bottom: 5px solid rgb(255, 255, 255);
-                    padding: 54px 10px 31px 10px;
-                }
-            }
-            
+            margin: 20px 0 0 40px;
+            background-size: contain;
         }
     }
 }
 
 //主要頁面區塊
 main {
-    //height: calc(100vh - 155px);
-    // min-height: 800px;
     background: #ededed;
+    // background: url('../img/main_bg.jpg') no-repeat;
+    // background-size: cover;
     font-size: 50px;
-    width: 100%;
     position: relative;
     display: block;
     @include scrollbar_blue2;
-    height: calc(100% - 150px);
-    //height: calc(100% - 150px);
+    min-height: calc(100% - 127px);
     .main_center {
-        width: 1340px;
+        // min-width: 1340px;
         margin: 0 auto;
-        position: relative;
-        min-height: 100%;
         background: #ffffff;
-        border-left: 1px solid #b2b2b2;
-        border-right: 1px solid #b2b2b2;
-        .main_title {
-            @include main_title1;
-        }
+    }
+    .loading{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -100px 0 0 -50px;
     }
 }
 
