@@ -11,11 +11,12 @@ export class ApiService {
 	 */
 	public errdata :any ={};
 	public langPackage : any = {};
-	public postData : any;
+	// public postData : any;
 	constructor(private http: Http) {
-		//只會回傳單一參數
-		this.postData = location.search.slice(1).split('=');
-		this.postData = ['battleRecord'];
+		// //只會回傳單一參數
+		// console.log(location.search);
+		// this.postData = location.search.slice(1).split('=');
+		// this.postData = ['battleRecord'];
 	}
 	/**
 	 * api路徑

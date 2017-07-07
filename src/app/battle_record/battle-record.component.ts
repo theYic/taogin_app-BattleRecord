@@ -12,28 +12,34 @@ export class BattleRecordComponent implements OnInit, OnDestroy {
     /**
      * 現在時間
      */
-    public data : string = "";
+    public battleData : string = "";
     /**
      * 當前語言 顯示的名稱
      */
     public selectLang : string = "";
-    /**
-     * 當前語言 顯示的 css 國旗
-     */
-    public selectLangClass = {};
     constructor(public api: ApiService) { }
 
     ngOnInit() {
         this.getBattleRecord();
     }
     getBattleRecord(){
-        this.data = "1";
-        //  this.api.postServer(925, {} ).subscribe(res => {
-        //         if(!res.err){
-        //             console.log("user-data->更改會員資訊",res);
-        //             return;
-        //         }
-        //  }
+        // let tempData = "http://big59-web.sog88.net/app/openWin/?battleRecord=406695421?zh-cn?FT?344283";
+        let tempData = location.href;
+        let temp = tempData.substring(tempData.indexOf("=")+1).split("?");
+        // console.log(temp);
+        this.doBattleRecord(temp);
+    }
+        doBattleRecord(data : any) : any{
+        let para = { uid : data[0], lang : data[1], gtype : data[2], gid : data[3]};
+        this.battleData = "";
+        this.api.postServer(681, para ).subscribe(res => {
+            if(!res['err']){
+                console.log("對戰紀錄回傳訊息",res);
+                return;
+            }
+            this.battleData = res['ret'];
+            // console.log(this.battleData);
+        });
     }
     ngOnDestroy(){
     }

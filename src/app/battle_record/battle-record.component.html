@@ -1,51 +1,28 @@
-<div class="loading" *ngIf="!data"><img src="../../img/loading.gif" ></div>
-<div class="main_center" *ngIf="data">
+<div class="loading" *ngIf="!battleData"><img src="../../img/loading.gif" ></div>
+<div class="main_center" *ngIf="battleData">
     <div class="record">
         <div class="content" >
             <table>
-                <caption>对战纪录</caption>
+                <caption>近期对战纪录</caption>
                 <tr class="title">
-                    <th colspan="2">赛事时间 [年/月/日/时]</th>
+                    <th>赛事时间 [年/月/日/时]</th>
+                    <th>联盟名称</th>
                     <th>主场球队</th>
                     <th>客场球队</th>
                     <th>波胆</th>
                     <th>上半场波胆</th>
                 </tr>
-                <!--<tr>
-                    <td>日職業</td>
-                    <td>2017-04-16 16:00:00</td>
-                    <td>橫濱水手</td>
-                    <td>廣島三箭</td>
-                    <td>0 - 0</td>
-                    <td>2 - 0</td>
-                </tr>
-                <tr>
-                    <td>日職業</td>
-                    <td>2017-04-16 16:00:00</td>
-                    <td>廣島三箭</td>
-                    <td>橫濱水手</td>
-                    <td>0 - 1</td>
-                    <td>3 - 2</td>
-                </tr>
-                <tr>
-                    <td>日職業</td>
-                    <td>2017-04-16 16:00:00</td>
-                    <td>橫濱水手</td>
-                    <td>廣島三箭</td>
-                    <td>0 - 2</td>
-                    <td>1 - 0</td>
-                </tr>
-                <tr>
-                    <td>日職業</td>
-                    <td>2017-04-16 16:00:00</td>
-                    <td>橫濱水手</td>
-                    <td>廣島三箭</td>
-                    <td>1 - 0</td>
-                    <td>2 - 0</td>
-                </tr>-->
-                
+                <tbody *ngFor="let list of battleData">
+                    <tr>
+                        <td>{{list.time}}</td>
+                        <td>{{list.lidname}}</td>
+                        <td>{{list.ht}}</td>
+                        <td>{{list.ct}}</td>
+                        <td>{{list.PD}}</td>
+                        <td>{{list.PDHR}}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
-        
     </div>
 </div>
