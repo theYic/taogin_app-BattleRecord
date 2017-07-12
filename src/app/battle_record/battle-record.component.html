@@ -12,8 +12,8 @@
                     <th>波胆</th>
                     <th>上半场波胆</th>
                 </tr>
-                <tbody *ngFor="let list of battleData">
-                    <tr>
+                <tbody>
+                    <tr *ngFor="let list of battleData">
                         <td>{{list.time}}</td>
                         <td>{{list.lidname}}</td>
                         <td>{{list.ht}}</td>
